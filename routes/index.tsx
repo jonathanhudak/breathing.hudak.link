@@ -1,5 +1,5 @@
 import { Head } from "$fresh/runtime.ts";
-import { LongCoherenceTimer } from "../islands/CoherenceTimer.jsx";
+import CoherenceTimer from "../islands/CoherenceTimer.tsx";
 
 export default function Home() {
   return (
@@ -8,7 +8,7 @@ export default function Home() {
         <title>breathing.hudak.land</title>
       </Head>
       <div class="p-4 mx-auto max-w-screen-md">
-        <LongCoherenceTimer />
+        <CoherenceTimer />
       </div>
     </>
   );
