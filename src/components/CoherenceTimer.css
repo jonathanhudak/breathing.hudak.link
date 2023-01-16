@@ -1,0 +1,21 @@
+.timer-animation {
+    width: 300px;
+    height: 300px;
+}
+
+.timer-remaining {
+    font-size: 3rem;
+    line-height: 1;
+}
+
+.timer-controls {
+    display: flex;
+    overflow: hidden;
+    gap: .5rem;
+}
+
+.timer {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
