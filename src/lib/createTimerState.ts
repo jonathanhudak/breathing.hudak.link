@@ -1,4 +1,4 @@
-import { ONE_SECOND, ONE_MINUTE } from "./constants.ts";
+import { ONE_SECOND, ONE_MINUTE } from "./constants";
 
 import { signal, computed, Signal, ReadonlySignal } from "@preact/signals";
 
