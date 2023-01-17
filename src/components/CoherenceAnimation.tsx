@@ -1,6 +1,7 @@
 import { FunctionComponent } from "preact";
 import { useSignal } from "@preact/signals";
 import { useRef, useEffect } from "preact/hooks";
+import { COHERENCE_BREATH_DURATION } from "../lib/constants";
 
 const fill = "#ffffff";
 const opacity = 0.35;
@@ -58,7 +59,7 @@ const Coherence: FunctionComponent<{ time: number; enabled: boolean }> = ({
           },
         ],
         {
-          duration: 5500,
+          duration: COHERENCE_BREATH_DURATION,
           iterations: Infinity,
           direction: "alternate",
         }

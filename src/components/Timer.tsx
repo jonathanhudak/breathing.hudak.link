@@ -32,7 +32,8 @@ export const Timer: FunctionComponent<{ time: string }> = ({
 };
 
 export function TimeRemainingDisplay() {
-  const { remainingTimeDisplay } = useTimerContext();
+  const { remainingTimeDisplay, timerEnabled } = useTimerContext();
+  if (!timerEnabled.value) return null;
 
   return <strong>{remainingTimeDisplay}</strong>;
 }

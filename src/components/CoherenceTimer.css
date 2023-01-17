@@ -1,21 +1,30 @@
+.timer {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
 .timer-animation {
     width: 300px;
     height: 300px;
 }
 
-.timer-remaining {
+.timer-direction {
     font-size: 3rem;
     line-height: 1;
+    text-align: center;
+    color: magenta;
 }
 
 .timer-controls {
     display: flex;
     overflow: hidden;
     gap: .5rem;
+    align-content: center;
+    justify-content: center;
 }
 
-.timer {
+.timer-footer {
     display: flex;
-    flex-direction: column;
-    gap: 1rem;
+    justify-content: space-between;
 }
