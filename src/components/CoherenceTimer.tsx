@@ -26,10 +26,11 @@ const RoundCount: FunctionComponent<{}> = () => {
   const breathCount = Math.floor(
     timerElapsed.value / COHERENCE_BREATH_DURATION
   );
+  const roundDisplay = Math.floor(breathCount / 2 + 1);
 
   if (!timerEnabled.value) return null;
 
-  return <>Round: {breathCount / 2 + 1}</>;
+  return <>Round: {roundDisplay}</>;
 };
 
 const StatefulCoherenceAnimation: FunctionComponent<{}> = () => {
