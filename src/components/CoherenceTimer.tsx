@@ -38,7 +38,7 @@ const StatefulCoherenceAnimation: FunctionComponent<{}> = () => {
 
   return (
     <CoherenceAnimation
-      time={timerElapsed.value}
+      time={Math.floor(timerElapsed.value / 1000)}
       enabled={timerEnabled.value}
     />
   );

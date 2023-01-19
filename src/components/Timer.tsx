@@ -55,7 +55,6 @@ export function Controls() {
       ) : (
         <>
           <button onClick={toggleTimer}>
-            {console.log(timerEnabled.value)}
             {timerEnabled.value
               ? "pause"
               : `${+timerElapsed.value > 0 ? "resume" : "start"}`}

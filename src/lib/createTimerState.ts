@@ -2,7 +2,7 @@ import { ONE_SECOND, ONE_MINUTE } from "./constants";
 
 import { signal, computed, Signal, ReadonlySignal } from "@preact/signals";
 
-const TIMER_SPEED = ONE_SECOND;
+const TIMER_SPEED = ONE_SECOND / 10;
 
 export interface TimerState {
   cancelTimer: () => void;
@@ -53,7 +53,7 @@ export function createTimerState(time: string): TimerState {
       // playSound(340);
       interval.value = setInterval(() => {
         if (timerElapsed.value !== timer.value) {
-          timerElapsed.value += ONE_SECOND;
+          timerElapsed.value += TIMER_SPEED;
         } else {
           // playSound(200);
           clearTimerInterval();

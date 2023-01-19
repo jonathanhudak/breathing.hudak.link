@@ -29,6 +29,8 @@ const Coherence: FunctionComponent<{ time: number; enabled: boolean }> = ({
   const animation = useRef<Animation>();
   const lastPause = useSignal(0);
 
+  console.log("time", time);
+
   useEffect(() => {
     if (animation.current) {
       if (enabled) {
