@@ -1,6 +1,12 @@
 import { ONE_SECOND, ONE_MINUTE } from "./constants";
-
-import { signal, computed, Signal, ReadonlySignal } from "@preact/signals";
+import {
+  signal,
+  computed,
+  Signal,
+  ReadonlySignal,
+  useSignal,
+} from "@preact/signals";
+import { createSoundPlay } from "../lib/sounds";
 
 const TIMER_SPEED = ONE_SECOND / 10;
 
@@ -12,11 +18,14 @@ export interface TimerState {
   timerEnabled: Signal<boolean>;
   restart: () => void;
 }
+
 export function createTimerState(time: string): TimerState {
+  const sound = useSignal(createSoundPlay());
   function initializeTimer(time: string) {
     const [minutes, seconds] = time.split(":");
     return +seconds * ONE_SECOND + +minutes * ONE_MINUTE;
   }
+
   console.assert(initializeTimer("1:30") === 90000);
 
   const timerDisplay = signal(time);
@@ -50,7 +59,7 @@ export function createTimerState(time: string): TimerState {
       timerElapsed.value !== timer.value &&
       !interval.value
     ) {
-      // playSound(340);
+      sound.value.play(80);
       interval.value = setInterval(() => {
         if (timerElapsed.value !== timer.value) {
           timerElapsed.value += TIMER_SPEED;

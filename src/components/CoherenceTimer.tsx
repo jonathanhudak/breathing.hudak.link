@@ -1,4 +1,6 @@
 import { FunctionComponent } from "preact";
+import { useEffect } from "preact/hooks";
+import { useSignal } from "@preact/signals";
 import {
   useTimerContext,
   createTimer,
@@ -7,15 +9,24 @@ import {
 } from "./Timer";
 import CoherenceAnimation from "./CoherenceAnimation";
 import "./CoherenceTimer.css";
+import { createSoundPlay } from "../lib/sounds";
 import { COHERENCE_BREATH_DURATION } from "../lib/constants";
 
 const BreathPrompt: FunctionComponent<{}> = () => {
+  const sound = useSignal(createSoundPlay());
   const { timerElapsed, timerEnabled } = useTimerContext();
   const breathCount = Math.floor(
     timerElapsed.value / COHERENCE_BREATH_DURATION
   );
-
   const isInhale = breathCount % 2 === 0;
+
+  useEffect(() => {
+    if (sound && sound.value) {
+      console.log("isInhale", isInhale);
+      sound.value.play(isInhale ? 40 : 80);
+    }
+  }, [isInhale]);
+
   if (!timerEnabled.value) return null;
 
   return <strong class="direction">{isInhale ? "Inhale" : "Exhale"}</strong>;
