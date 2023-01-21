@@ -41,7 +41,7 @@ const RoundCount: FunctionComponent<{}> = () => {
 
   if (!timerEnabled.value) return null;
 
-  return <>Round: {roundDisplay}</>;
+  return <>Round {roundDisplay}</>;
 };
 
 const StatefulCoherenceAnimation: FunctionComponent<{}> = () => {
@@ -63,21 +63,24 @@ export const TimerLong = createTimer({
 });
 
 export default () => (
-  <TimerLong>
-    <div class="timer">
-      <div class="timer-direction">
-        <BreathPrompt />
+  <div>
+    <h1>Coherence Breathing</h1>
+    <TimerLong>
+      <div class="timer">
+        <div class="timer-direction">
+          <BreathPrompt />
+        </div>
+        <div class="timer-animation">
+          <StatefulCoherenceAnimation />
+        </div>
+        <div class="timer-footer">
+          <RoundCount />
+          <TimeRemainingDisplay />
+        </div>
+        <div class="timer-controls">
+          <Controls />
+        </div>
       </div>
-      <div class="timer-animation">
-        <StatefulCoherenceAnimation />
-      </div>
-      <div class="timer-footer">
-        <RoundCount />
-        <TimeRemainingDisplay />
-      </div>
-      <div class="timer-controls">
-        <Controls />
-      </div>
-    </div>
-  </TimerLong>
+    </TimerLong>
+  </div>
 );
